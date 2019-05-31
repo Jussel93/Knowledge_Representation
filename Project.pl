@@ -10,19 +10,32 @@ draw_square :-
 	send(Window, size, size(MaxX, MaxY)),
 	send(Window, open),
 	draw_lines(Window),
-	MX1 is (MaxX div 2 +59), MY1 is (MaxY div 2 - 20), % 20 space over
-	draw_angel(Window, MX1, MY1), % Missionar 1 zeichnen
-	MX2 is (MaxX div 2 +109), MY2 is MY1,
-	draw_angel(Window, MX2, MY2), % Missionar 2 zeichnen
-	MX3 is (MaxX div 2 +159), MY3 is MY1,
-	draw_angel(Window, MX3, MY3), % Missionar 3 zeichnen
-	CX1 is MX1, CY1 is (MaxY div 2 + 52), % 20 space + 32 picture size
-	draw_cannibal(Window, CX1, CY1), % Kannibale 1 zeichnen
-	CX2 is MX2, CY2 is CY1,
-	draw_cannibal(Window, CX2, CY2), % Kannibale 2 zeichnen
-	CX3 is MX3, CY3 is CY1,
-	draw_cannibal(Window, CX3, CY3). % Kannibale 3 zeichnen
-	
+	% right 
+	MX1R is (MaxX div 2 +59), MY1R is (MaxY div 2 - 20), % 20 space over
+	draw_angel(Window, MX1R, MY1R), % Missionar 1 zeichnen
+	MX2R is (MaxX div 2 +109), MY2R is MY1R,
+	draw_angel(Window, MX2R, MY2R), % Missionar 2 zeichnen
+	MX3R is (MaxX div 2 +159), MY3R is MY1R,
+	draw_angel(Window, MX3R, MY3R), % Missionar 3 zeichnen
+	CX1R is MX1R, CY1R is (MaxY div 2 + 52), % 20 space + 32 picture size
+	draw_cannibal(Window, CX1R, CY1R), % Kannibale 1 zeichnen
+	CX2R is MX2R, CY2R is CY1R,
+	draw_cannibal(Window, CX2R, CY2R), % Kannibale 2 zeichnen
+	CX3R is MX3R, CY3R is CY1R,
+	draw_cannibal(Window, CX3R, CY3R), % Kannibale 3 zeichnen
+	% Left
+	MX1L is (MaxX div 2 -91), MY1L is (MaxY div 2 - 20), % 20 space over
+	draw_angel(Window, MX1L, MY1L), % Missionar 1 zeichnen
+	MX2L is (MaxX div 2 -141), MY2L is MY1L,
+	draw_angel(Window, MX2L, MY2L), % Missionar 2 zeichnen
+	MX3L is (MaxX div 2 -191), MY3L is MY1L,
+	draw_angel(Window, MX3L, MY3L), % Missionar 3 zeichnen
+	CX1L is MX1L, CY1L is (MaxY div 2 + 52), % 20 space + 32 picture size
+	draw_cannibal(Window, CX1L, CY1L), % Kannibale 1 zeichnen
+	CX2L is MX2L, CY2L is CY1L,
+	draw_cannibal(Window, CX2L, CY2L), % Kannibale 2 zeichnen
+	CX3L is MX3L, CY3L is CY1L,
+	draw_cannibal(Window, CX3L, CY3L). % Kannibale 3 zeichnen	
 	
 draw_lines(Window):-
 	window_size(MaxX, MaxY),
@@ -45,11 +58,11 @@ draw_lines(Window):-
 			
 % zum zeichnen den Befehl draw_square. benutzen
 
-	draw_cannibal(Window, X, Y):-
+	draw_cannibal(Window, X, Y, BitMap):-
 		send(Window, display,
 			new(BitMap, bitmap('cannibal.xpm')), point(X, Y)),
 			sleep(1).
-	draw_angel(Window, X, Y):-
+	draw_angel(Window, X, Y, BitMap):-
 		send(Window, display,
 			new(BitMap, bitmap('angel.xpm')), point(X, Y)),
 			sleep(1).		
