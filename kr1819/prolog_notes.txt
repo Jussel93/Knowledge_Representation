@@ -1,0 +1,91 @@
+
+
+Knowledge Representation
+
+- Logic Programming is a different paradigm.
+
+- We are going to use Logic to resolv problems 
+  with a computer.
+
+- Logic Rules and facts.
+
+  if sun_sunning -> go_bech.
+     -----------    ---------
+     antecedent	    consequent
+	 
+	 
+  if sun_sunning and have_car -> go_beach
+  
+  Programming paradigms
+  
+  - Declarative Programming (Prolog, Haskell, ...)
+  
+  - Imperative              (C, C++, Java, Python, ...)
+    99% of code in the world
+	
+  - Prolog is an language for Artificial Intelligence
+
+  - We only use Horn Clauses
+
+    if a and b and c -> d  
+	
+	
+  - Variables
+
+    X (star with capital letter)
+    
+    The scope of variables in Prolog is a sentence.
+	
+	
+  - Unification  ( = )
+  
+    Two terms unify if
+  
+    1. there are no variables,
+	   terms are identical.
+	   
+	   examples:
+	   
+	   1 + 1 = 2.     -> false
+	   1 + 1 = 1 + 1. -> true
+	   
+	   exceptions to read character by character
+	   
+	   1 + 1 + 1 = (1 + 1) + 1.  -> true
+	   1 + 1 + 1  = 1 + (1 + 1). -> false 
+	   1 + 1 = +(1, 1). -> true
+	   
+	2. if there are variables,
+       two terms unify if is posible to replace
+       variables for something that will made 
+	   terms identical.	   
+	   
+	   examples:
+	   
+	   X = 1 + 1. -> true when X take the value 1 + 1.
+       X = 2, X = 1 + 1. -> false
+       X = 1 + 1, 2 is X. -> true when X take value 1 + 1.
+
+
+	Induction principle
+    
+    We want to demonstrate a property P if it is 
+    true for all the elements of a set S.
+
+    Elements is S have to be orderly.	
+	
+	1. P is true for n0
+	
+	2. For the rest elements (n > n0),
+	   if P(n-1) -> P(n)
+	  
+
+      
+	
+	
+  
+ 
+  
+  
+
+	
