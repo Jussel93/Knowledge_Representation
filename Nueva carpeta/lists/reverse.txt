@@ -1,0 +1,7 @@
+% reverse(+List, -Result)
+% it is true if Result is a list
+% that contains same elements than List
+% but in reverse order
+%
+% ? reverse([1,2,3,4], R).
+% R = [4,3,2,1]
